@@ -1,4 +1,7 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -19,6 +22,11 @@ module.exports = () => {
 
     // TODO: Add the correct plugins
     plugins: [
+      // generates html file in dist folder, looks at the index.html in client folder & passes in the title 'Contact Cards
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Contact Cards'
+      })
      
     ],
 
