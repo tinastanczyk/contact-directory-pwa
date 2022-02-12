@@ -60,27 +60,25 @@ module.exports = () => {
 
     // TODO: Add the correct modules
     module: {
+      // CSS loaders
       rules: [
         {
-          // checking for .css files and using style-loader and css-loader to create a separate .css file
-          test: /\.css%/i,
+          test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
-          // check for anything ending in .js
           test: /\.m?js$/,
-          // don't check for node_modules
           exclude: /node_modules/,
-          // We use babel-loader in order to use ES6
+          // We use babel-loader in order to use ES6.
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
               plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
-            }
-          }
-        }
-      ]
+            },
+          },
+        },
+      ],
     }
   };
 };
