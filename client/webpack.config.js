@@ -26,6 +26,11 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Contact Cards'
+      }),
+      // We already have a service worker file, so we will use inject manifest rather than manifest. The source is the sw file already in the client folder and the new file name is 'src-sw.js', where the file will be outputted
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       })
      
     ],
